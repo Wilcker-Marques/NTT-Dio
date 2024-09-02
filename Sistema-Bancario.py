@@ -1,3 +1,9 @@
+cores = {
+    'verde' : '\033[032m',
+    'vermelho' : '\033[031m',
+    'padrao' : '\033[0;0m'
+}
+
 menu = f'''
 {'Dio Bank':=^50}
 [1] Deposito
@@ -20,7 +26,7 @@ while True:
         print(f'\n{'Deposito':=^50}\n')
         deposito = int(input("Informe o valor : R$ "))
         saldo += deposito
-        extrato += f'Deposito R$ {deposito:.2f}\n'
+        extrato += f'{cores["verde"]}Deposito R$ {deposito:.2f}{cores["padrao"]}\n'
     
     elif opçao == 2:
         print(f'\n{'Saque':=^50}\n')
@@ -33,7 +39,7 @@ while True:
             print('Valor de saque maior que permitido')
         else:
             saldo -= saque
-            extrato += f'Saque R$ {saque:.2f}\n'
+            extrato += f'{cores["vermelho"]}Saque R$ {saque:.2f}{cores["padrao"]}\n'
             contador += 1
 
     elif opçao == 3:
